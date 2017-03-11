@@ -56,11 +56,20 @@
 	    hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(216);
+	var Wheater = __webpack_require__(218);
+	var About = __webpack_require__(219);
+	var Examples = __webpack_require__(220);
 
 	ReactDOM.render(React.createElement(
 	  Router,
 	  { history: hashHistory },
-	  React.createElement(Route, { path: '/', component: Main })
+	  React.createElement(
+	    Route,
+	    { path: '/', component: Main },
+	    React.createElement(Route, { path: 'about', component: About }),
+	    React.createElement(Route, { path: 'examples', component: Examples }),
+	    React.createElement(IndexRoute, { component: Wheater })
+	  )
 	), document.getElementById('app'));
 
 /***/ },
@@ -24845,6 +24854,8 @@
 
 	var React = __webpack_require__(1);
 	var Navbar = __webpack_require__(217);
+	var Wheater = __webpack_require__(218);
+	var Examples = __webpack_require__(220);
 
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -24858,7 +24869,8 @@
 	        'h2',
 	        null,
 	        'Main Component'
-	      )
+	      ),
+	      this.props.children
 	    );
 	  }
 	});
@@ -24872,18 +24884,106 @@
 
 	var React = __webpack_require__(1);
 
+	var _require = __webpack_require__(159),
+	    Link = _require.Link;
+
 	var Navbar = React.createClass({
 	  displayName: 'Navbar',
 
 	  render: function render() {
 	    return React.createElement(
-	      'h2',
+	      'div',
 	      null,
-	      'navbar'
+	      React.createElement(
+	        'h2',
+	        null,
+	        'navbar'
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: '/' },
+	        'Get Wheater'
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: '/about' },
+	        'About'
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: '/examples' },
+	        'Examples'
+	      )
 	    );
 	  }
 	});
 	module.exports = Navbar;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Wheater = __webpack_require__(218);
+
+	var Wheater = React.createClass({
+	  displayName: 'Wheater',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'Wheater'
+	    );
+	  }
+	});
+	module.exports = Wheater;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var About = __webpack_require__(219);
+
+	var About = React.createClass({
+	  displayName: 'About',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'about'
+	    );
+	  }
+	});
+	module.exports = About;
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Examples = __webpack_require__(220);
+
+	var Examples = React.createClass({
+	  displayName: 'Examples',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'Examples'
+	    );
+	  }
+	});
+	module.exports = Examples;
 
 /***/ }
 /******/ ]);
