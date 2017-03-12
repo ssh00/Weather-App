@@ -24915,23 +24915,19 @@
 	var Wheater = __webpack_require__(225);
 	var Examples = __webpack_require__(254);
 
-	var Main = React.createClass({
-	  displayName: 'Main',
-
-	  render: function render() {
-	    return React.createElement(
-	      'div',
+	var Main = function Main(props) {
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(Navbar, null),
+	    React.createElement(
+	      'h2',
 	      null,
-	      React.createElement(Navbar, null),
-	      React.createElement(
-	        'h2',
-	        null,
-	        'Main Component'
-	      ),
-	      this.props.children
-	    );
-	  }
-	});
+	      'Main Component'
+	    ),
+	    props.children
+	  );
+	};
 	module.exports = Main;
 
 /***/ },
@@ -26645,17 +26641,13 @@
 	var React = __webpack_require__(8);
 	var Examples = __webpack_require__(254);
 
-	var Examples = React.createClass({
-	  displayName: 'Examples',
-
-	  render: function render() {
-	    return React.createElement(
-	      'h3',
-	      null,
-	      'Examples'
-	    );
-	  }
-	});
+	var Examples = function Examples(props) {
+	  return React.createElement(
+	    'h3',
+	    null,
+	    'Examples component'
+	  );
+	};
 	module.exports = Examples;
 
 /***/ },
@@ -26667,17 +26659,13 @@
 	var React = __webpack_require__(8);
 	var About = __webpack_require__(255);
 
-	var About = React.createClass({
-	  displayName: 'About',
-
-	  render: function render() {
-	    return React.createElement(
-	      'h3',
-	      null,
-	      'about'
-	    );
-	  }
-	});
+	var About = function About(props) {
+	  return React.createElement(
+	    'h3',
+	    null,
+	    'about'
+	  );
+	};
 	module.exports = About;
 
 /***/ },
