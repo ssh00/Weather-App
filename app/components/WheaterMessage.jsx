@@ -7,7 +7,7 @@ var WheaterMessage = React.createClass({
 
     return(
       <h3>its {temp} in {location} </h3>
-    );
+    )
   }
 });
 module.exports = WheaterMessage;
