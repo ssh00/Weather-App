@@ -3,8 +3,10 @@ var WheaterMessage = require('WheaterMessage');
 
 var WheaterMessage = React.createClass({
   render: function(){
+    var {temp,location}= this.props;
+
     return(
-      <h3>its 20 in kesh </h3>
+      <h3>its {temp} in {location} </h3>
     );
   }
 });

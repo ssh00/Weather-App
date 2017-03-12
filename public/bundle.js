@@ -24934,7 +24934,23 @@
 	var Wheater = React.createClass({
 	  displayName: 'Wheater',
 
+	  getInitialState: function getInitialState() {
+	    return {
+	      location: 'Miami',
+	      temp: 88
+	    };
+	  },
+	  HandleSearch: function HandleSearch(location) {
+	    this.setState({
+	      location: location,
+	      temp: 23
+	    });
+	  },
 	  render: function render() {
+	    var _state = this.state,
+	        temp = _state.temp,
+	        location = _state.location;
+
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24943,8 +24959,8 @@
 	        null,
 	        'Wheater'
 	      ),
-	      React.createElement(WheaterForm, null),
-	      React.createElement(WheaterMessage, null)
+	      React.createElement(WheaterForm, { onSearch: this.HandleSearch }),
+	      React.createElement(WheaterMessage, { temp: temp, location: location })
 	    );
 	  }
 	});
@@ -24962,14 +24978,23 @@
 	var WheaterForm = React.createClass({
 	  displayName: 'WheaterForm',
 
+	  onFormSubmit: function onFormSubmit(e) {
+	    e.preventDefault();
+
+	    var location = this.refs.location.value;
+	    if (location.length > 0) {
+	      this.refs.location.value = '';
+	      this.props.onSearch(location);
+	    }
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(
 	        'form',
-	        null,
-	        React.createElement('input', { type: 'text' }),
+	        { onSubmit: this.onFormSubmit },
+	        React.createElement('input', { type: 'text', ref: 'location' }),
 	        React.createElement(
 	          'button',
 	          null,
@@ -24994,10 +25019,19 @@
 	  displayName: 'WheaterMessage',
 
 	  render: function render() {
+	    var _props = this.props,
+	        temp = _props.temp,
+	        location = _props.location;
+
+
 	    return React.createElement(
 	      'h3',
 	      null,
-	      'its 20 in kesh '
+	      'its ',
+	      temp,
+	      ' in ',
+	      location,
+	      ' '
 	    );
 	  }
 	});
