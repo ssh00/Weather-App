@@ -11,7 +11,9 @@ module.exports = {
       Navbar: 'app/components/Navbar.jsx',
       Wheater: 'app/components/Wheater.jsx',
       About: 'app/components/About.jsx',
-      Examples: 'app/components/Examples.jsx'
+      Examples: 'app/components/Examples.jsx',
+      WheaterForm: 'app/components/WheaterForm.jsx',
+      WheaterMessage: 'app/components/WheaterMessage.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

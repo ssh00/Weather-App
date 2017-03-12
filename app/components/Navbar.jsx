@@ -1,5 +1,5 @@
 var React = require('react');
-var {Link} = require('react-router');
+var {Link,IndexLink} = require('react-router');
 
 
 var Navbar = React.createClass({
@@ -7,9 +7,9 @@ var Navbar = React.createClass({
     return(
       <div>
       <h2>navbar</h2>
-      <Link to="/">Get Wheater</Link>
-      <Link to="/about">About</Link>
-      <Link to="/examples">Examples</Link>
+      <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Wheater</IndexLink>
+      <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
+      <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
       </div>
     );
   }

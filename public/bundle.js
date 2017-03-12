@@ -57,8 +57,8 @@
 
 	var Main = __webpack_require__(216);
 	var Wheater = __webpack_require__(218);
-	var About = __webpack_require__(219);
-	var Examples = __webpack_require__(220);
+	var About = __webpack_require__(222);
+	var Examples = __webpack_require__(221);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -24855,7 +24855,7 @@
 	var React = __webpack_require__(1);
 	var Navbar = __webpack_require__(217);
 	var Wheater = __webpack_require__(218);
-	var Examples = __webpack_require__(220);
+	var Examples = __webpack_require__(221);
 
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -24885,7 +24885,8 @@
 	var React = __webpack_require__(1);
 
 	var _require = __webpack_require__(159),
-	    Link = _require.Link;
+	    Link = _require.Link,
+	    IndexLink = _require.IndexLink;
 
 	var Navbar = React.createClass({
 	  displayName: 'Navbar',
@@ -24900,18 +24901,18 @@
 	        'navbar'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/' },
+	        IndexLink,
+	        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'Get Wheater'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: '/about' },
+	        { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'About'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: '/examples' },
+	        { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'Examples'
 	      )
 	    );
@@ -24927,15 +24928,23 @@
 
 	var React = __webpack_require__(1);
 	var Wheater = __webpack_require__(218);
+	var WheaterForm = __webpack_require__(219);
+	var WheaterMessage = __webpack_require__(220);
 
 	var Wheater = React.createClass({
 	  displayName: 'Wheater',
 
 	  render: function render() {
 	    return React.createElement(
-	      'h3',
+	      'div',
 	      null,
-	      'Wheater'
+	      React.createElement(
+	        'h3',
+	        null,
+	        'Wheater'
+	      ),
+	      React.createElement(WheaterForm, null),
+	      React.createElement(WheaterMessage, null)
 	    );
 	  }
 	});
@@ -24948,20 +24957,29 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var About = __webpack_require__(219);
+	var WheaterForm = __webpack_require__(219);
 
-	var About = React.createClass({
-	  displayName: 'About',
+	var WheaterForm = React.createClass({
+	  displayName: 'WheaterForm',
 
 	  render: function render() {
 	    return React.createElement(
-	      'h3',
+	      'div',
 	      null,
-	      'about'
+	      React.createElement(
+	        'form',
+	        null,
+	        React.createElement('input', { type: 'text' }),
+	        React.createElement(
+	          'button',
+	          null,
+	          'Get Wheater'
+	        )
+	      )
 	    );
 	  }
 	});
-	module.exports = About;
+	module.exports = WheaterForm;
 
 /***/ },
 /* 220 */
@@ -24970,7 +24988,29 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Examples = __webpack_require__(220);
+	var WheaterMessage = __webpack_require__(220);
+
+	var WheaterMessage = React.createClass({
+	  displayName: 'WheaterMessage',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'its 20 in kesh '
+	    );
+	  }
+	});
+	module.exports = WheaterMessage;
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Examples = __webpack_require__(221);
 
 	var Examples = React.createClass({
 	  displayName: 'Examples',
@@ -24984,6 +25024,28 @@
 	  }
 	});
 	module.exports = Examples;
+
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var About = __webpack_require__(222);
+
+	var About = React.createClass({
+	  displayName: 'About',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'about'
+	    );
+	  }
+	});
+	module.exports = About;
 
 /***/ }
 /******/ ]);
