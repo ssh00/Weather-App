@@ -2,6 +2,7 @@ var React = require('react');
 var Wheater = require('Wheater');
 var WheaterForm = require('WheaterForm');
 var WheaterMessage = require('WheaterMessage');
+var OpenWeatherMap = require('OpenWeatherMap');
 
 var Wheater = React.createClass({
   getInitialState: function () {
@@ -11,10 +12,19 @@ var Wheater = React.createClass({
     }
   },
   HandleSearch: function(location){
-    this.setState({
-      location: location,
-      temp: 23
-    })
+    var that = this;
+    OpenWeatherMap.getTemp(location).then(function(temp){
+      that.setState({
+        location: location,
+        temp: temp
+      });
+    },function (errorMessage) {
+      alert(errorMessage);
+    });
+    //this.setState({
+    //  location: location,
+    //  temp: 23
+    //})
   },
   render: function(){
     var {temp, location}= this.state;
