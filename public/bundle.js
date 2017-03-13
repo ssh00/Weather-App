@@ -24921,11 +24921,14 @@
 	    null,
 	    React.createElement(Navbar, null),
 	    React.createElement(
-	      'h2',
-	      null,
-	      'Main Component'
-	    ),
-	    props.children
+	      'div',
+	      { className: 'row' },
+	      React.createElement(
+	        'div',
+	        { className: 'columns medium-6 large-4 small-centered' },
+	        props.children
+	      )
+	    )
 	  );
 	};
 	module.exports = Main;
@@ -24945,34 +24948,82 @@
 	var Navbar = React.createClass({
 	  displayName: 'Navbar',
 
+	  onSearch: function onSearch(e) {
+	    e.preventDefault();
+	    alert('Not yet wired up!');
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'top-bar' },
 	      React.createElement(
-	        'h2',
-	        null,
-	        'navbar'
+	        'div',
+	        { className: 'top-bar-left' },
+	        React.createElement(
+	          'ul',
+	          { className: 'menu' },
+	          React.createElement(
+	            'li',
+	            { className: 'menu-text' },
+	            'React Weather App'
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              IndexLink,
+	              { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'Get Weather'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              Link,
+	              { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'About'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              Link,
+	              { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'Examples'
+	            )
+	          )
+	        )
 	      ),
 	      React.createElement(
-	        IndexLink,
-	        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	        'Get Wheater'
-	      ),
-	      React.createElement(
-	        Link,
-	        { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	        'About'
-	      ),
-	      React.createElement(
-	        Link,
-	        { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	        'Examples'
+	        'div',
+	        { className: 'top-bar-right' },
+	        React.createElement(
+	          'form',
+	          { onSubmit: this.onSearch },
+	          React.createElement(
+	            'ul',
+	            { className: 'menu' },
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement('input', { type: 'search', placeholder: 'Search weather' })
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement('input', { type: 'submit', className: 'button', value: 'Get Weather' })
+	            )
+	          )
+	        )
 	      )
 	    );
 	  }
 	});
 	module.exports = Navbar;
+
+	//navbar
 
 /***/ },
 /* 225 */
@@ -25022,7 +25073,7 @@
 	        return React.createElement(
 	          'h3',
 	          null,
-	          'Fetching weather'
+	          'Fetching weather...'
 	        );
 	      } else if (temp && location) {
 	        return React.createElement(WheaterMessage, { temp: temp, location: location });
@@ -25104,7 +25155,7 @@
 	    return React.createElement(
 	      'h3',
 	      null,
-	      'its ',
+	      'It\'s ',
 	      temp,
 	      ' in ',
 	      location,
@@ -26641,11 +26692,45 @@
 	var React = __webpack_require__(8);
 	var Examples = __webpack_require__(254);
 
+	var _require = __webpack_require__(166),
+	    Link = _require.Link;
+
 	var Examples = function Examples(props) {
 	  return React.createElement(
-	    'h3',
+	    'div',
 	    null,
-	    'Examples component'
+	    React.createElement(
+	      'h1',
+	      { className: 'text-center' },
+	      'Examples'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'Here are few example locations to try out:'
+	    ),
+	    React.createElement(
+	      'ol',
+	      null,
+	      React.createElement(
+	        'li',
+	        null,
+	        React.createElement(
+	          Link,
+	          { to: '/?location=Miami' },
+	          'Miami, FA'
+	        )
+	      ),
+	      React.createElement(
+	        'li',
+	        null,
+	        React.createElement(
+	          Link,
+	          { to: '/?location=Casablanca' },
+	          'Casablanca, MA'
+	        )
+	      )
+	    )
 	  );
 	};
 	module.exports = Examples;
@@ -26661,9 +26746,47 @@
 
 	var About = function About(props) {
 	  return React.createElement(
-	    'h3',
+	    'div',
 	    null,
-	    'about'
+	    React.createElement(
+	      'h1',
+	      { className: 'text-center' },
+	      'About'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'This is a wheater app built using React.'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'Tools used:'
+	    ),
+	    React.createElement(
+	      'ul',
+	      null,
+	      React.createElement(
+	        'li',
+	        null,
+	        React.createElement(
+	          'a',
+	          { href: 'https://facebook.github.io/react/' },
+	          'React'
+	        ),
+	        ' - Javascript framework used.'
+	      ),
+	      React.createElement(
+	        'li',
+	        null,
+	        React.createElement(
+	          'a',
+	          { href: 'https://openweathermap.org/' },
+	          'Open wheater map'
+	        ),
+	        ' - API used.'
+	      )
+	    )
 	  );
 	};
 	module.exports = About;

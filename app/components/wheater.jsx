@@ -32,7 +32,7 @@ var Wheater = React.createClass({
 
     function renderMessage(){
       if(isLoading){
-        return <h3>Fetching weather</h3>;
+        return <h3>Fetching weather...</h3>;
       }else if (temp && location) {
         return <WheaterMessage temp={temp} location={location}/>;
 
