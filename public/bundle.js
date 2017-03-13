@@ -25072,7 +25072,7 @@
 	      if (isLoading) {
 	        return React.createElement(
 	          'h3',
-	          null,
+	          { className: 'text-center' },
 	          'Fetching weather...'
 	        );
 	      } else if (temp && location) {
@@ -25083,9 +25083,9 @@
 	      'div',
 	      null,
 	      React.createElement(
-	        'h3',
-	        null,
-	        'Wheater'
+	        'h1',
+	        { className: 'text-center' },
+	        'Get Weather'
 	      ),
 	      React.createElement(WheaterForm, { onSearch: this.HandleSearch }),
 	      renderMessage()
@@ -25125,8 +25125,8 @@
 	        React.createElement('input', { type: 'text', ref: 'location' }),
 	        React.createElement(
 	          'button',
-	          null,
-	          'Get Wheater'
+	          { className: 'button expanded hollow' },
+	          'Get Weather'
 	        )
 	      )
 	    );
@@ -25154,12 +25154,12 @@
 
 	    return React.createElement(
 	      'h3',
-	      null,
-	      'It\'s ',
+	      { className: 'text-center' },
+	      'It\'s it ',
 	      temp,
 	      ' in ',
 	      location,
-	      ' '
+	      '.'
 	    );
 	  }
 	});
@@ -26756,7 +26756,7 @@
 	    React.createElement(
 	      'p',
 	      null,
-	      'This is a wheater app built using React.'
+	      'This is a Weather app built using React.'
 	    ),
 	    React.createElement(
 	      'p',

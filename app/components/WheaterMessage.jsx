@@ -6,7 +6,7 @@ var WheaterMessage = React.createClass({
     var {temp,location}= this.props;
 
     return(
-      <h3>It's {temp} in {location} </h3>
+      <h3 className="text-center">It's it {temp} in {location}.</h3>
     )
   }
 });
